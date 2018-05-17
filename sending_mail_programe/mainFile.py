@@ -1,11 +1,11 @@
 import mail_send
-import smtplib
+import smtplib,getpass
 
 print("Welcome you can send an E-mail through this programe")
 print("enter you E-mail and password")
 email , domain = mail_send.get_email_id()
 
-password = input('Password: ')
+password = getpass.getpass('Password: ')
 smtpDomain = mail_send.set_smtp_domain(domain)
 
 print("Please type receivers E-mail")
