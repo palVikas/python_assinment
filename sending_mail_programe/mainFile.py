@@ -15,13 +15,13 @@ Subject = input("Subject: ")
 Message = input("Message: ")
 
 
-"""
 
-connection = smtplib.SMTP(mail_send.smtpDomain, 587)
+
+connection = smtplib.SMTP(smtpDomain, 587)
 connection.ehlo()
 connection.starttls()
-connection.login(mail_send.email,mail_send.password)
-connection.sendmail('vikas807657@gmail.com','vikaspal807657@gmail.com','hello how are you vikas!')
+connection.login(email , password)
+connection.sendmail(email,reciever_email,('Subject: '+str(Subject)+'\n\n'+str(Message)))
 
 print ("E-mail send successfully")
 
@@ -30,4 +30,3 @@ connection.quit()
 
 
 
-"""
