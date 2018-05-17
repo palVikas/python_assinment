@@ -3,50 +3,37 @@ import smtplib
 
 
 
-"""
-connection = smtplib.SMTP('smtp.gmail.com', 587)
-connection.ehlo()
-connection.starttls()
-connection.login('vikas807657@gmail.com','vikas15101992@')
-connection.sendmail('vikas807657@gmail.com','vikaspal807657@gmail.com','hello how are you vikas!')
-connection.quit()
-
-print ("connect successfully msg send")
-
-"""
-
-
 #input admin email_id_
 
-email_id = input("enter your email id : ")
-print (email_id)
-password =  input("enter your password: ")
-print (password)
 
-
-def is_valid_email_id(email_id):
+def get_email_id():
     domain_name = ["gmail",'yahoo','outlook','hotmail']
-    if '@' in email_id and '.' in email_id :
-        symbol_pos = email_id.find('@')
-        dotcom_pos = email_id.find(".com")
-        domain = email_id[symbol_pos+1 : dotcom_pos]
-        print(domain)
-        if domain in domain_name:
-            return  email_id , domain
+    while True:
+        email_id = input("E-mail: ")
+        if '@' in email_id and '.' in email_id :
+            symbol_pos = email_id.find('@')
+            dotcom_pos = email_id.find(".com")
+            domain = email_id[symbol_pos+1 : dotcom_pos]
+            if domain in domain_name:
+                return  email_id , domain
+                break
+            else:
+                print('we dont provide service '+ domain)
+                print ('we provide only services : gmail/yahoo/outlook/hotmail')
+                continue
         else:
-            print('we dont provide service '+ domain)
-            print ('we provide only services : gmail/yahoo/outlook/hotmail')
-    
+             print("invalid email id")
+             continue
+
+
+def set_smtp_domain(serviceProvider):
+    if serviceProvider == 'gmail':
+        return 'smtp.gmail.com'
+    if serviceProvider == 'outlook' or seviceProvider == 'hotmail':
+        return 'smtp-mail.outlook.com'
+    if serviceProvider == 'yahoo':
+        return 'smtp.mail.yahoo.com'
 
 
 
-
-    else:
-         print("invalid email id")
-
-
-email , domain = is_valid_email_id(email_id)
-print(email)
-print(domain)
-print(domain)
 
