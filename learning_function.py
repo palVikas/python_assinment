@@ -24,6 +24,8 @@ def factorial(num):
         return 1
     return num*factorial(num-1)
 
+print (factorial(number))
+
 
 #write a programe to print ap series of given number
 
