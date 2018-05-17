@@ -1,3 +1,9 @@
+import webbrowser
+
+get_content  = open("source_code.txt", "r+")
+get_text = get_content.read()
+
+
 def get_link(page):
      start_link = page.find('<a href =')
      if(start_link ==(-1)):
@@ -8,15 +14,26 @@ def get_link(page):
      url = page[start_quote+1:end_quote]
      return url , end_quote
 
-def print_all_links(page):
+def get_all_links(page):
+    url_container =[]
     while True:
         url , end_quote = get_link(page)
         if url:
-            print (url)
+            url_container.append(url)
             page = page[end_quote:]
         else:
             break
+    return url_container
+
+def extract_links(linksList):
+     for link in linksList:
+          webbrowser.open(link)
 
 
-print_all_links('............<a href = "www.facebook.com">.......<a href = "www.lolbook.com">..............<a href = "www.pagal.com">...................<a href = "www.instagrame.com">')
-        
+all_link_list = get_all_links(get_text)
+print(all_link_list)
+
+extract_links(all_link_list)
+
+get_content.close()
+

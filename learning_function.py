@@ -45,6 +45,8 @@ for num_of_trm in range(1,number_of_terms):
 print(series)
 
 
+
+
     
     
 
