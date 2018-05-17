@@ -23,7 +23,7 @@ connection.starttls()
 connection.login(mail_send.email,mail_send.password)
 connection.sendmail('vikas807657@gmail.com','vikaspal807657@gmail.com','hello how are you vikas!')
 
-print ("connect successfully msg send")
+print ("E-mail send successfully")
 
 connection.quit()
 
