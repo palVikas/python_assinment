@@ -44,7 +44,7 @@ module.move_file_into_folder(folder_path,pdf_folder,pdf_file_list)
 
 # exe files
 exe_folder = module.folder_path_builder(folder_path,'exeFiles')
-print(exe_folder+"--------")
+#print(exe_folder+"--------")
 module.check_folder_exist_or_create_new_folder(exe_folder)
 
 exe_file_list = module.exeScan(folder_path)
